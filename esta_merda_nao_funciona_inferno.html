@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .bg1 {
+        background-color: #25076b;
+        background-repeat: no-repeat;
+        margin: 0px;
+      }
+      .bg2 {
+        background-color: white;
+        margin: 0px;
+      }
+
+      .logo {
+        width: 271px;
+        height: auto;
+        margin-left: 25px;
+        margin-top: 143px;
+      }
+      .iniciar {
+        width: 199px;
+        height: 45px;
+        font-size: 24px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        background-color: white;
+        border: none;
+        color: #535151;
+        margin-top: 139px;
+        margin-bottom: 144px;
+        margin-left: 61px;
+        margin-right: 61px;
+        padding: 0px;
+        cursor: pointer;
+        display: block;
+        border-radius: 100px;
+      }
+      .pergunta {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #343434;
+        padding-top: 36px;
+        padding-left: 17px;
+        padding-right: 17px;
+        margin: 0px;
+      }
+      .foto {
+        padding-left: 45px;
+        padding-right: 45px;
+        /* padding-top: 30px; */
+        display: block;
+      }
+      .vermelho {
+        background-color: #d72b2b;
+        color: white;
+      }
+      .verde {
+        background-color: #11811c;
+        color: white;
+      }
+      .laranja {
+        background-color: #ef7d14;
+        color: white;
+      }
+      .alternativa_1 {
+        color: white;
+        background-color: #d03542;
+        border: none;
+        margin-top: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 132px;
+        padding-right: 132px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .alternativa_2 {
+        color: white;
+        background-color: #cf9f36;
+        border: none;
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 140px;
+        padding-right: 141px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .alternativa_3 {
+        color: white;
+        background-color: #2f69c7;
+        border: none;
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 126px;
+        padding-right: 127px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .alternativa_4 {
+        color: white;
+        background-color: #468629;
+        border: none;
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 136px;
+        padding-right: 136px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .resposta {
+        height: 172px;
+        width: 230px;
+        margin-left: 45px;
+        margin-right: 45px;
+        margin-top: 30px;
+        display: block;
+      }
+      .resposta_certa {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        text-align: center;
+      }
+      .resposta_errada {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        text-align: center;
+      }
+      .resposta_tempo {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        text-align: center;
+      }
+      .seguinte {
+        background-color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        padding-top: 7px;
+        padding-bottom: 6px;
+        padding-left: 33px;
+        padding-right: 33px;
+        margin-top: 23px;
+        margin-left: 47px;
+        margin-right: 47px;
+        border-radius: 30px;
+      }
+      .fonte_verde {
+        color: #11811c;
+      }
+      .fonte_vermelho {
+        color: #d72b2b;
+      }
+      .fonte_laranja {
+        color: #ef7d14;
+      }
+      .opacidade {
+        opacity: 0.5;
+      }
+      .bloco_certo {
+        padding-top: 49px;
+        padding-bottom: 42px;
+      }
+      .bloco_errado {
+        padding-top: 49px;
+        padding-bottom: 42px;
+      }
+      .bloco_tempo {
+        padding-top: 49px;
+        padding-bottom: 42px;
+      }
+      .timer {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: #46178f;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 6px;
+        margin-left: 136px;
+        margin-bottom: -24px;
+        border: 1px solid white;
+        z-index: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .sumir {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg1">
+    <div class="pagina_1 sumir">
+      <img
+        class="logo"
+        src="https://i.imgur.com/54i73yb.png"
+        alt="Kahoot_Logo"
+        height="200"
+        width="587"
+      />
+      <button type="button" onclick="iniciar()" class="iniciar">Iniciar</button>
+    </div>
+    <div class="pagina_2 sumir">
+      <div class="pergunta"></div>
+      <!-- //FIXME: essa div é responsável por adicionar a classe "pergunta" contendo
+      o texto. -->
+      <div class="timer">30</div>
+      <img
+        class="foto foto_1"
+        src="https://i.imgur.com/9DRLuQR.jpeg"
+        alt="Mãos_para_cima"
+        height="173px"
+        width="230"
+      />
+      <div class="resposta sumir">
+        <div class="bloco_certo sumir">
+          <p class="resposta_certa">Alternativa Correta!</p>
+          <button
+            type="button"
+            class="seguinte fonte_verde"
+            onclick="seguinte()"
+          >
+            Seguinte
+          </button>
+        </div>
+        <div class="bloco_errado sumir">
+          <p class="resposta_errada">Alternativa Errada!</p>
+          <button
+            type="button"
+            class="seguinte fonte_vermelho"
+            onclick="seguinte()"
+          >
+            Seguinte
+          </button>
+        </div>
+        <div class="bloco_tempo sumir">
+          <p class="resposta_tempo">Seu tempo acabou!</p>
+          <button
+            type="button"
+            class="seguinte fonte_laranja"
+            onclick="seguinte()"
+          >
+            Seguinte
+          </button>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="alternativa_1 botao_1 todos"
+        onclick="alternativa(0)"
+      ></button>
+      <button
+        type="button"
+        class="alternativa_2 botao_2 todos"
+        onclick="alternativa(1)"
+      ></button>
+      <button
+        type="button"
+        class="alternativa_3 botao_3 todos"
+        onclick="alternativa(2)"
+      ></button>
+      <button
+        type="button"
+        class="alternativa_4 botao_4 todos"
+        onclick="alternativa(3)"
+      ></button>
+    </div>
+    <script>
+      let body = document.querySelector('body');
+      let pagina_1 = document.querySelector('.pagina_1');
+      let pagina_2 = document.querySelector('.pagina_2');
+      let foto = document.querySelector('.foto');
+      let foto_1 = document.querySelector('.foto_1');
+      let resposta = document.querySelector('.resposta');
+      let resposta_certa = document.querySelector('.resposta_certa');
+      let resposta_errada = document.querySelector('.resposta_errada');
+      let resposta_tempo = document.querySelector('.resposta_tempo');
+      let blocos = document.querySelector('.blocos');
+      let todos = document.querySelector('.todos');
+      let pergunta = document.querySelector('.pergunta');
+      let bloco_certo = document.querySelector('.bloco_certo');
+      let bloco_errado = document.querySelector('.bloco_errado');
+      let bloco_tempo = document.querySelector('.bloco_tempo');
+      let botao_1 = document.querySelector('.botao_1');
+      let botao_2 = document.querySelector('.botao_2');
+      let botao_3 = document.querySelector('.botao_3');
+      let botao_4 = document.querySelector('.botao_4');
+      let timer = document.querySelector('.timer');
+
+      let segundos = 30;
+      let identificador = null;
+
+      let botoes = [botao_1, botao_2, botao_3, botao_4];
+
+      pagina_1.classList.remove('sumir');
+
+      let pagina = [
+        {
+          texto: 'Qual animal representa o símbolo da paz?',
+          r_certa: 0,
+          alternativas: ['Pomba', 'Gato', 'Elefante', 'Cobra'],
+          imagem: 'https://i.imgur.com/9DRLuQR.jpeg',
+        },
+        {
+          texto: 'O sushi é uma comida original de qual país?',
+          r_certa: 2,
+          alternativas: ['Tailândia', 'China', 'Japão', 'Coreia do Sul'],
+          imagem: 'https://i.imgur.com/GiDrhQE.jpeg',
+        },
+        {
+          texto: 'Qual empresa criou o iPhone?',
+          r_certa: 3,
+          alternativas: ['Google', 'Amazon', 'Microsoft', 'Apple'],
+          imagem: 'https://i.imgur.com/S8Tflln.jpeg',
+        },
+        {
+          texto: 'Quantos dias tem um ano bissexto?',
+          r_certa: 2,
+          alternativas: ['364 dias', '356 dias', '366 dias', '376 dias'],
+          imagem: 'https://i.imgur.com/baZifzW.png',
+        },
+        {
+          texto: 'Qual a cor da caixa-preta do avião?',
+          r_certa: 1,
+          alternativas: ['Azul', 'Laranja', 'Branco', 'Preto'],
+          imagem: 'https://i.imgur.com/4Ul5304.png',
+        },
+      ];
+
+      let indice_p = 0;
+      let indice_certo = pagina[indice_p].r_certa;
+      let acertou = clique === indice_certo;
+
+      let opacidade_add = () => {
+        let indice = 0;
+        let indice_certo = pagina[indice_p].r_certa;
+        let acertou = clique === indice_certo;
+        while (indice < botoes.length) {
+          if (indice !== indice_certo) {
+            botoes[indice].classList.add('opacidade');
+          }
+          indice += 1;
+        }
+      };
+
+      let opacidade_rem = () => {
+        let indice = 0;
+        while (indice < botoes.length) {
+          botoes[indice].classList.remove('opacidade');
+          indice += 1;
+        }
+      };
+
+      let disabled_add = () => {
+        let indice = 0;
+        while (indice < botoes.length) {
+          botoes[indice].setAttribute('disabled', '');
+          indice += 1;
+        }
+      };
+
+      let disabled_rem = () => {
+        let indice = 0;
+        while (indice < botoes.length) {
+          botoes[indice].removeAttribute('disabled', '');
+          indice += 1;
+        }
+      };
+
+      let f_timer = () => {
+        segundos = segundos - 1;
+        timer.innerHTML = segundos + '';
+        console.log(segundos);
+        if (segundos <= 0) {
+          clearInterval(identificador);
+          console.log('seu tempo acabou');
+          timer.classList.add('sumir');
+          foto.classList.add('sumir');
+          resposta.classList.remove('sumir');
+          resposta.classList.add('laranja');
+          bloco_tempo.classList.remove('sumir');
+          disabled_add();
+          opacidade_add();
+        }
+      };
+
+      let reiniciar = () => {
+        resposta.classList.remove('verde');
+        resposta.classList.remove('vermelho');
+        resposta.classList.add('sumir');
+        bloco_certo.classList.add('sumir');
+        bloco_errado.classList.add('sumir');
+        disabled_rem();
+        opacidade_rem();
+        foto_1.classList.remove('sumir');
+        timer.classList.remove('sumir');
+        if (identificador != null) {
+          clearInterval(identificador);
+        }
+        identificador = setInterval(f_timer, 1000);
+        segundos = 30;
+        timer.innerHTML = segundos + '';
+      };
+
+      let iniciar = () => {
+        pagina_1.classList.add('sumir');
+        body.classList.add('bg2');
+        body.classList.remove('bg1');
+        pagina_2.classList.remove('sumir');
+        pagina_1.classList.add('sumir');
+        pergunta.innerHTML = pagina[indice_p].texto;
+        foto.innerHTML = pagina[indice_p].imagem;
+        botao_1.innerHTML = pagina[indice_p].alternativas[0];
+        botao_2.innerHTML = pagina[indice_p].alternativas[1];
+        botao_3.innerHTML = pagina[indice_p].alternativas[2];
+        botao_4.innerHTML = pagina[indice_p].alternativas[3];
+        reiniciar();
+      };
+
+      let seguinte = () => {
+        console.log('chegou aqui');
+        indice_p += 1;
+        foto.setAttribute('src', pagina[indice_p].imagem);
+        pergunta.innerHTML = pagina[indice_p].texto;
+        botao_1.innerHTML = pagina[indice_p].alternativas[0];
+        botao_2.innerHTML = pagina[indice_p].alternativas[1];
+        botao_3.innerHTML = pagina[indice_p].alternativas[2];
+        botao_4.innerHTML = pagina[indice_p].alternativas[3];
+
+        reiniciar();
+      };
+
+      let alternativa = (clique) => {
+        let indice_certo = pagina[indice_p].r_certa;
+        let acertou = clique === indice_certo;
+        if (acertou) {
+          console.log('alternativa correta');
+          resposta.classList.add('verde');
+          bloco_certo.classList.remove('sumir');
+        } else {
+          console.log('alternativa errada');
+          resposta.classList.add('vermelho');
+          bloco_errado.classList.remove('sumir');
+        }
+        let contador = 0;
+        opacidade_add();
+        disabled_add();
+        resposta.classList.remove('sumir');
+        foto.classList.add('sumir');
+        clearInterval(identificador);
+        timer.classList.add('sumir');
+      };
+    </script>
+  </body>
+</html>
