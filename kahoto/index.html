@@ -124,12 +124,13 @@
       .alternativa_4 {
         color: white;
         border: none;
-        padding-top: calc((20px * 0.5) + (6.25vw * 0.5));
-        padding-bottom: calc((20px * 0.5) + (6.25vw * 0.5));
+        /* padding-top: calc((1.25rem * 0.5) + (6.25vw * 0.5));
+        padding-bottom: calc((1.25rem * 0.5) + (6.25vw * 0.5)); */
         width: 100%;
-        font-size: calc((16px * 0.5) + (5vw * 0.5));
+        font-size: calc((1rem * 0.5) + (5vw * 0.5));
         cursor: pointer;
         font-weight: 600;
+        flex-grow: 1;
       }
       .alternativa_1 {
         background-color: #d03542;
@@ -248,6 +249,11 @@
         top: -7.5vw;
         left: calc(50% - 7.5vw);
       }
+      .grupo_botoes {
+        display: flex;
+        flex-direction: column;
+        height: calc((240px * 0.5) + (75vw * 0.5));
+      }
       .referencia {
         position: relative;
       }
@@ -311,7 +317,7 @@
           </button>
         </div>
       </div>
-      <div class="width-100">
+      <div class="width-100 grupo_botoes">
         <button
           type="button"
           class="alternativa_1 botao_1"
