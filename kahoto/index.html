@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -283,6 +283,8 @@
           class="foto foto_1"
           src="https://i.imgur.com/9DRLuQR.jpeg"
           alt="Mãos_para_cima"
+          height="172"
+          width="230"
         />
       </div>
       <div class="resposta sumir">
@@ -348,6 +350,8 @@
         class="boneco_1"
         src="https://i.imgur.com/pt7qNpR.png"
         alt="boneco_feliz"
+        height="178"
+        width="148"
       />
       <button
         type="button"
@@ -426,6 +430,51 @@
           r_certa: 1,
           alternativas: ["Azul", "Laranja", "Branco", "Preto"],
           imagem: "https://i.imgur.com/4Ul5304.png",
+        },
+        {
+          texto: "De onde é a invenção do chuveiro elétrico?",
+          r_certa: 2,
+          alternativas: ["França", "Inglaterra", "Brasil", "Estados Unidos"],
+          imagem: "https://i.imgur.com/tsbSNKc.png",
+        },
+        {
+          texto: "Qual o menor e o maior país do mundo?",
+          r_certa: 0,
+          alternativas: [
+            "Vaticano e Rússia",
+            "Nauru e China",
+            "Mônaco e Canadá",
+            "São Marino e Índia",
+          ],
+          imagem: "https://i.imgur.com/YMdg9HX.png",
+        },
+        {
+          texto: "Quais países não fazem fronteira com o Brasil?",
+          r_certa: 2,
+          alternativas: [
+            "Colômbia e Chile",
+            "Suriname e Equador",
+            "Chile e Equador",
+            "Guiana e Guiana Francesa",
+          ],
+          imagem: "https://i.imgur.com/yZACFdJ.jpeg",
+        },
+        {
+          texto: "Qual metal cujo símbolo é Au?",
+          r_certa: 3,
+          alternativas: ["Cobre", "Prata", "Mercúrio", "Ouro"],
+          imagem: "https://i.imgur.com/4wRFu8s.jpeg",
+        },
+        {
+          texto: 'Qual nome desse símbolo "*"?',
+          r_certa: 1,
+          alternativas: [
+            "Asterístico",
+            "Asterisco",
+            "Astirístico",
+            "Astetístico",
+          ],
+          imagem: "https://i.imgur.com/ZEnU5PX.jpeg",
         },
       ];
 
@@ -522,7 +571,7 @@
           body.classList.add("bg3");
           body.classList.remove("bg2");
           pagina_3.classList.remove("sumir");
-          if (corretas > 1 && corretas < 4) {
+          if (corretas > 1 && corretas < 6) {
             boneco_1.setAttribute("src", boneco[1].imagem);
             jogar_novamente.innerHTML = boneco[1].texto;
             texto_parabens.innerHTML =
@@ -537,7 +586,7 @@
             jogar_novamente.innerHTML = boneco[1].texto;
             texto_parabens.innerHTML =
               "Poxa, você não acertou nenhuma pergunta!";
-          } else if (corretas === 4) {
+          } else if (corretas > 5 && corretas < pagina.length) {
             boneco_1.setAttribute("src", boneco[0].imagem);
             jogar_novamente.innerHTML = boneco[0].texto;
             texto_parabens.innerHTML =
