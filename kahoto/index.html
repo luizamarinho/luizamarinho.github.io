@@ -10,11 +10,15 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Kahoto!</title>
     <link
       rel="icon"
       type="image/x-icon"
-      href="https://i.imgur.com/ZADJ2Nw.png"
+      href="https://i.imgur.com/RIEqhwa.png"
     />
     <style>
       html,
@@ -39,10 +43,12 @@
         background-repeat: no-repeat;
       }
       .bg2 {
-        background-color: white;
+        background-color: #f2f2f2;
+        display: flex;
+        gap: 200px;
       }
       .bg3 {
-        background-color: #25076b;
+        background-color: #46178f;
       }
       .pagina_1 {
         display: flex;
@@ -52,7 +58,7 @@
         min-height: 100%;
       }
       .logo {
-        width: 84.68vw;
+        width: calc((270px * 0.5) + (84.375vw * 0.5));
         height: auto;
         display: flex;
         justify-content: center;
@@ -61,14 +67,26 @@
         width: calc((199px * 0.5) + (62.18vw * 0.5));
         height: auto;
         font-size: calc((24px * 0.5) + (7.5vw * 0.5));
-        font-family: "Open Sans", sans-serif;
-        font-weight: 600;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
         background-color: white;
         border: none;
         color: #535151;
         cursor: pointer;
         display: block;
         border-radius: 100px;
+        aspect-ratio: 199/45;
+        opacity: 1;
+
+        transition: transform steps(5) 0.5s 0s, opacity ease 1s 0.5s;
+      }
+      .hora_do_show .iniciar {
+        /* transform: translateY(50px); */
+        opacity: 0.5;
+      }
+      .hora_do_show .logo {
+        /* transform: translateY(50px); */
+        opacity: 0.5;
       }
       .pagina_2 {
         display: flex;
@@ -77,9 +95,9 @@
         min-height: 100%;
         justify-content: space-between;
         align-items: center;
-        padding-top: 36px;
         box-sizing: border-box;
-        column-gap: 30px;
+        gap: 30px;
+        width: 100%;
       }
       .pagina_3 {
         display: flex;
@@ -92,15 +110,22 @@
       }
       .pergunta {
         text-align: center;
-        font-family: "Open Sans", sans-serif;
-        font-size: 7.5vw;
+        font-family: 'Open Sans', sans-serif;
+        font-size: min(7.5vw, 48px);
         font-weight: 700;
         color: #343434;
+        line-height: 123.182%;
+        padding-top: 14px;
+        padding-bottom: 13px;
+        background-color: white;
+        width: 100%;
       }
       .foto {
-        display: block;
-        width: 71.87vw;
+        display: flex;
+        width: min(71.87vw, 460px);
         height: auto;
+        object-fit: cover;
+        aspect-ratio: 230/172;
       }
       .vermelho {
         background-color: #d72b2b;
@@ -124,13 +149,12 @@
       .alternativa_4 {
         color: white;
         border: none;
-        /* padding-top: calc((1.25rem * 0.5) + (6.25vw * 0.5));
-        padding-bottom: calc((1.25rem * 0.5) + (6.25vw * 0.5)); */
         width: 100%;
-        font-size: calc((1rem * 0.5) + (5vw * 0.5));
+        font-size: min(calc((1rem * 0.5) + (5vw * 0.5)), 32px);
         cursor: pointer;
-        font-weight: 600;
+        font-weight: 700;
         flex-grow: 1;
+        line-height: 123.182%;
       }
       .alternativa_1 {
         background-color: #d03542;
@@ -153,32 +177,29 @@
       .resposta_certa,
       .resposta_errada,
       .resposta_tempo {
-        font-family: "Open Sans", sans-serif;
-        font-size: 6.25vw;
+        font-family: 'Open Sans', sans-serif;
+        font-size: min(6.25vw, 40px);
         font-weight: 800;
         text-align: center;
       }
       .seguinte {
         background-color: white;
-        font-family: "Open Sans", sans-serif;
-        font-size: 5vw;
+        font-family: 'Open Sans', sans-serif;
+        font-size: min(5vw, 32px);
         font-weight: 700;
         border: none;
-        padding-top: 2.18vw;
-        padding-bottom: 1.87vw;
-        padding-left: 10.31vw;
-        padding-right: 10.31vw;
+        padding-top: min(2.18vw, 13px);
+        padding-bottom: min(1.87vw, 13px);
+        padding-left: min(10.31vw, 67px);
+        padding-right: min(10.31vw, 66px);
         border-radius: 9.37vw;
       }
       .texto_parabens {
-        color: black;
-        background-color: white;
+        color: white;
         text-align: center;
-        font-family: "Open Sans", sans-serif;
-        font-size: 6.25vw;
+        font-family: 'Open Sans', sans-serif;
+        font-size: min(7.5vw, 48px);
         font-weight: 700;
-        padding-top: 3.43vw;
-        padding-bottom: 2.81vw;
         width: 84.37vw;
       }
       .margem_texto {
@@ -186,26 +207,26 @@
       }
       .boneco_1 {
         display: block;
-        height: 55.68vw;
-        width: 46.25vw;
+        height: min(55.68vw, 372px);
+        width: min(46.25vw, 310px);
       }
       .jogar_novamente {
         border: none;
         background-color: white;
         color: #535151;
         border-radius: 6.25vw;
-        font-size: calc((20px * 0.5) + (6.25vw * 0.5));
-        font-family: "Open Sans", sans-serif;
+        font-size: min(calc((20px * 0.5) + (6.25vw * 0.5)), 36px);
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
-        padding-top: calc((10px * 0.5) + (3.12vw * 0.5));
-        padding-bottom: calc((10px * 0.5) + (3.12vw * 0.5));
-        padding-right: calc((21px * 0.5) + (6.5vw * 0.5));
-        padding-left: calc((21px * 0.5) + (6.5vw * 0.5));
+        padding-top: min(calc((10px * 0.5) + (3.12vw * 0.5)), 23px);
+        padding-bottom: min(calc((10px * 0.5) + (3.12vw * 0.5)), 23px);
+        padding-right: min(calc((21px * 0.5) + (6.5vw * 0.5)), 62px);
+        padding-left: min(calc((21px * 0.5) + (6.5vw * 0.5)), 61px);
+        aspect-ratio: 216/45;
       }
       .logo_2 {
-        display: block;
-        height: calc((57px * 0.5) + (17.81vw * 0.5));
-        width: calc((159px * 0.5) + (49.68vw * 0.5));
+        height: 57px;
+        width: 159px;
       }
       .fonte_verde {
         color: #11811c;
@@ -217,7 +238,7 @@
         color: #ef7d14;
       }
       .opacidade {
-        opacity: 0.5;
+        opacity: 0.25;
       }
       .bloco_certo,
       .bloco_errado,
@@ -229,41 +250,172 @@
         height: 100%;
       }
       .timer {
-        width: calc((48px * 0.5) + (15vw * 0.5));
+        --tamanho: calc((48px * 0.5) + (15vw * 0.5));
+        width: var(--tamanho);
         height: auto;
         aspect-ratio: 1/1;
         border-radius: 50%;
-        background-color: #46178f;
+        background-color: #874ec1;
         color: white;
-        font-family: "Open Sans", sans-serif;
-        font-size: calc((20px * 0.5) + (6.25vw * 0.5));
+        font-family: 'Inter', sans-serif;
+        font-size: calc((24px * 0.5) + (7.5vw * 0.5));
         font-weight: 700;
         text-align: center;
-        border: 0.31vw solid white;
+        border: min(0.31vw, 1px) solid white;
         z-index: 1;
-        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: -7.5vw;
-        left: calc(50% - 7.5vw);
+        top: calc(var(--tamanho) / -2);
+        left: calc(50% - (var(--tamanho) / 2));
       }
       .grupo_botoes {
         display: flex;
         flex-direction: column;
         height: calc((240px * 0.5) + (75vw * 0.5));
       }
+      .bloco-lilas {
+        background-color: #46178f;
+        width: 600px;
+        height: 600px;
+        transform: rotate(47.19deg);
+        right: -338.95px;
+        bottom: -293.95px;
+        position: absolute;
+        z-index: -1;
+      }
+      .quebra {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
       .referencia {
         position: relative;
+        display: flex;
       }
       .sumir {
         display: none;
+      }
+
+      .d-none {
+        display: none !important;
+      }
+      .d-block {
+        display: block !important;
+      }
+      .d-flex {
+        display: flex !important;
+      }
+
+      @media (min-width: 768px) {
+        .d-md-none {
+          display: none !important;
+        }
+        .d-md-block {
+          display: block !important;
+        }
+        .d-md-flex {
+          display: flex !important;
+        }
+        .logo {
+          width: 70.313vw;
+        }
+        .iniciar {
+          width: calc((398px * 0.5) + (51.823vw * 0.5));
+          font-size: calc((48px * 0.5) + (6.25vw * 0.5));
+          aspect-ratio: 398/90;
+        }
+        .pergunta {
+          padding-bottom: 29px;
+          padding-top: 29px;
+          background-color: white;
+        }
+        .timer {
+          --tamanho: calc((100px * 0.5) + (9.766vw * 0.5));
+          --distancia: -39px;
+          top: calc(50% - (var(--tamanho) / 2));
+          left: calc((var(--tamanho) * -1) + var(--distancia));
+          font-size: calc((32px * 0.5) + (4.16vw * 0.5));
+        }
+        .alternativa_1,
+        .alternativa_2,
+        .alternativa_3,
+        .alternativa_4 {
+          font-size: calc((2rem * 0.5) + (4.16vw * 0.5));
+          flex-grow: 1;
+        }
+        .grupo_botoes {
+          height: calc((360px * 0.5) + (46.875vw * 0.5));
+        }
+        .resposta {
+          width: 59.896vw;
+          aspect-ratio: 460/344;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .d-lg-none {
+          display: none !important;
+        }
+        .d-lg-block {
+          display: block !important;
+        }
+        .d-lg-flex {
+          display: flex !important;
+        }
+        .logo {
+          width: 52.734vw;
+        }
+        .iniciar {
+          width: calc((398px * 0.5) + (38.867vw * 0.5));
+          font-size: calc((48px * 0.5) + (4.68vw * 0.5));
+          aspect-ratio: 398/90;
+        }
+        .pergunta {
+          font-size: 46px;
+          padding-bottom: 32px;
+          padding-top: 31px;
+        }
+        .timer {
+          --tamanho: 100px;
+          --distancia: -89px;
+          font-size: 48px;
+        }
+        .alternativa_1,
+        .alternativa_2,
+        .alternativa_3,
+        .alternativa_4 {
+          font-size: 30px;
+        }
+        .quebra {
+          flex-direction: row;
+        }
+        .grupo_botoes {
+          height: 180px;
+        }
+        .resposta {
+          width: 460px;
+        }
+        .resposta_certa,
+        .resposta_errada,
+        .resposta_tempo {
+          font-size: 40px;
+        }
+        .seguinte {
+          font-size: min(5vw, 32px);
+          padding-top: min(2.18vw, 13px);
+          padding-bottom: min(1.87vw, 13px);
+          padding-left: min(10.31vw, 67px);
+          padding-right: min(10.31vw, 66px);
+          border-radius: 50px;
+        }
       }
     </style>
   </head>
   <body class="bg1">
     <div class="pagina_1 sumir">
+      <!-- <div class="bloco-lilas"></div> -->
       <img
         class="logo"
         src="https://i.imgur.com/54i73yb.png"
@@ -320,26 +472,30 @@
         </div>
       </div>
       <div class="width-100 grupo_botoes">
-        <button
-          type="button"
-          class="alternativa_1 botao_1"
-          onclick="alternativa(0)"
-        ></button>
-        <button
-          type="button"
-          class="alternativa_2 botao_2"
-          onclick="alternativa(1)"
-        ></button>
-        <button
-          type="button"
-          class="alternativa_3 botao_3"
-          onclick="alternativa(2)"
-        ></button>
-        <button
-          type="button"
-          class="alternativa_4 botao_4"
-          onclick="alternativa(3)"
-        ></button>
+        <div class="quebra">
+          <button
+            type="button"
+            class="alternativa_1 botao_1"
+            onclick="alternativa(0)"
+          ></button>
+          <button
+            type="button"
+            class="alternativa_2 botao_2"
+            onclick="alternativa(1)"
+          ></button>
+        </div>
+        <div class="quebra">
+          <button
+            type="button"
+            class="alternativa_3 botao_3"
+            onclick="alternativa(2)"
+          ></button>
+          <button
+            type="button"
+            class="alternativa_4 botao_4"
+            onclick="alternativa(3)"
+          ></button>
+        </div>
       </div>
     </div>
     <div class="pagina_3 sumir">
@@ -367,30 +523,30 @@
       </div>
     </div>
     <script>
-      let body = document.querySelector("body");
-      let pagina_1 = document.querySelector(".pagina_1");
-      let pagina_2 = document.querySelector(".pagina_2");
-      let foto = document.querySelector(".foto");
-      let foto_1 = document.querySelector(".foto_1");
-      let resposta = document.querySelector(".resposta");
-      let resposta_certa = document.querySelector(".resposta_certa");
-      let resposta_errada = document.querySelector(".resposta_errada");
-      let resposta_tempo = document.querySelector(".resposta_tempo");
-      let blocos = document.querySelector(".blocos");
-      let pergunta = document.querySelector(".pergunta");
-      let bloco_certo = document.querySelector(".bloco_certo");
-      let bloco_errado = document.querySelector(".bloco_errado");
-      let bloco_tempo = document.querySelector(".bloco_tempo");
-      let botao_1 = document.querySelector(".botao_1");
-      let botao_2 = document.querySelector(".botao_2");
-      let botao_3 = document.querySelector(".botao_3");
-      let botao_4 = document.querySelector(".botao_4");
-      let timer = document.querySelector(".timer");
-      let pagina_3 = document.querySelector(".pagina_3");
-      let texto_parabens = document.querySelector(".texto_parabens");
-      let boneco_1 = document.querySelector(".boneco_1");
-      let jogar_novamente = document.querySelector(".jogar_novamente");
-      let referencia = document.querySelector(".referencia");
+      let body = document.querySelector('body');
+      let pagina_1 = document.querySelector('.pagina_1');
+      let pagina_2 = document.querySelector('.pagina_2');
+      let foto = document.querySelector('.foto');
+      let foto_1 = document.querySelector('.foto_1');
+      let resposta = document.querySelector('.resposta');
+      let resposta_certa = document.querySelector('.resposta_certa');
+      let resposta_errada = document.querySelector('.resposta_errada');
+      let resposta_tempo = document.querySelector('.resposta_tempo');
+      let blocos = document.querySelector('.blocos');
+      let pergunta = document.querySelector('.pergunta');
+      let bloco_certo = document.querySelector('.bloco_certo');
+      let bloco_errado = document.querySelector('.bloco_errado');
+      let bloco_tempo = document.querySelector('.bloco_tempo');
+      let botao_1 = document.querySelector('.botao_1');
+      let botao_2 = document.querySelector('.botao_2');
+      let botao_3 = document.querySelector('.botao_3');
+      let botao_4 = document.querySelector('.botao_4');
+      let timer = document.querySelector('.timer');
+      let pagina_3 = document.querySelector('.pagina_3');
+      let texto_parabens = document.querySelector('.texto_parabens');
+      let boneco_1 = document.querySelector('.boneco_1');
+      let jogar_novamente = document.querySelector('.jogar_novamente');
+      let referencia = document.querySelector('.referencia');
 
       let segundos = 10;
       let identificador = null;
@@ -398,96 +554,96 @@
 
       let botoes = [botao_1, botao_2, botao_3, botao_4];
 
-      pagina_1.classList.remove("sumir");
+      pagina_1.classList.remove('sumir');
 
       let pagina = [
         {
-          texto: "Qual animal representa o símbolo da paz?",
+          texto: 'Qual animal representa o símbolo da paz?',
           r_certa: 0,
-          alternativas: ["Pomba", "Gato", "Elefante", "Cobra"],
-          imagem: "https://i.imgur.com/9DRLuQR.jpeg",
+          alternativas: ['Pomba', 'Gato', 'Elefante', 'Cobra'],
+          imagem: 'https://i.imgur.com/9DRLuQR.jpeg',
         },
         {
-          texto: "O sushi é uma comida original de qual país?",
+          texto: 'O sushi é uma comida original de qual país?',
           r_certa: 2,
-          alternativas: ["Tailândia", "China", "Japão", "Coreia do Sul"],
-          imagem: "https://i.imgur.com/GiDrhQE.jpeg",
+          alternativas: ['Tailândia', 'China', 'Japão', 'Coreia do Sul'],
+          imagem: 'https://i.imgur.com/GiDrhQE.jpeg',
         },
         {
-          texto: "Qual empresa criou o iPhone?",
+          texto: 'Qual empresa criou o iPhone?',
           r_certa: 3,
-          alternativas: ["Google", "Amazon", "Microsoft", "Apple"],
-          imagem: "https://i.imgur.com/S8Tflln.jpeg",
+          alternativas: ['Google', 'Amazon', 'Microsoft', 'Apple'],
+          imagem: 'https://i.imgur.com/NO9Pcsx.jpeg',
         },
         {
-          texto: "Quantos dias tem um ano bissexto?",
+          texto: 'Quantos dias tem um ano bissexto?',
           r_certa: 2,
-          alternativas: ["364 dias", "356 dias", "366 dias", "376 dias"],
-          imagem: "https://i.imgur.com/baZifzW.png",
+          alternativas: ['364 dias', '356 dias', '366 dias', '376 dias'],
+          imagem: 'https://i.imgur.com/baZifzW.png',
         },
         {
-          texto: "Qual a cor da caixa-preta do avião?",
+          texto: 'Qual a cor da caixa-preta do avião?',
           r_certa: 1,
-          alternativas: ["Azul", "Laranja", "Branco", "Preto"],
-          imagem: "https://i.imgur.com/7bihkJB.jpeg",
+          alternativas: ['Azul', 'Laranja', 'Branco', 'Preto'],
+          imagem: 'https://i.imgur.com/7bihkJB.jpeg',
         },
         {
-          texto: "De onde é a invenção do chuveiro elétrico?",
+          texto: 'De onde é a invenção do chuveiro elétrico?',
           r_certa: 2,
-          alternativas: ["França", "Inglaterra", "Brasil", "Estados Unidos"],
-          imagem: "https://i.imgur.com/tsbSNKc.png",
+          alternativas: ['França', 'Inglaterra', 'Brasil', 'Estados Unidos'],
+          imagem: 'https://i.imgur.com/tsbSNKc.png',
         },
         {
-          texto: "Qual o menor e o maior país do mundo?",
+          texto: 'Qual o menor e o maior país do mundo?',
           r_certa: 0,
           alternativas: [
-            "Vaticano e Rússia",
-            "Nauru e China",
-            "Mônaco e Canadá",
-            "São Marino e Índia",
+            'Vaticano e Rússia',
+            'Nauru e China',
+            'Mônaco e Canadá',
+            'São Marino e Índia',
           ],
-          imagem: "https://i.imgur.com/YMdg9HX.png",
+          imagem: 'https://i.imgur.com/YMdg9HX.png',
         },
         {
-          texto: "Quais países não fazem fronteira com o Brasil?",
+          texto: 'Quais países não fazem fronteira com o Brasil?',
           r_certa: 2,
           alternativas: [
-            "Colômbia e Chile",
-            "Suriname e Equador",
-            "Chile e Equador",
-            "Guiana e Guiana Francesa",
+            'Colômbia e Chile',
+            'Suriname e Equador',
+            'Chile e Equador',
+            'Guiana e Guiana Francesa',
           ],
-          imagem: "https://i.imgur.com/yZACFdJ.jpeg",
+          imagem: 'https://i.imgur.com/yZACFdJ.jpeg',
         },
         {
-          texto: "Qual metal cujo símbolo é Au?",
+          texto: 'Qual metal cujo símbolo é Au?',
           r_certa: 3,
-          alternativas: ["Cobre", "Prata", "Mercúrio", "Ouro"],
-          imagem: "https://i.imgur.com/4wRFu8s.jpeg",
+          alternativas: ['Cobre', 'Prata', 'Mercúrio', 'Ouro'],
+          imagem: 'https://i.imgur.com/4wRFu8s.jpeg',
         },
         {
           texto: 'Qual nome desse símbolo "*"?',
           r_certa: 1,
           alternativas: [
-            "Asterístico",
-            "Asterisco",
-            "Astirístico",
-            "Astetístico",
+            'Asterístico',
+            'Asterisco',
+            'Astirístico',
+            'Astetístico',
           ],
-          imagem: "https://i.imgur.com/ZEnU5PX.jpeg",
+          imagem: 'https://i.imgur.com/ZEnU5PX.jpeg',
         },
       ];
 
       let boneco = [
         {
-          imagem: "https://i.imgur.com/pt7qNpR.png",
+          imagem: 'https://i.imgur.com/pt7qNpR.png',
           // boneco feliz
-          texto: "Jogar novamente",
+          texto: 'Jogar novamente',
         },
         {
-          imagem: "https://i.imgur.com/zX5Gupx.png",
+          imagem: 'https://i.imgur.com/zX5Gupx.png',
           // boneco triste
-          texto: "Tentar novamente",
+          texto: 'Tentar novamente',
         },
       ];
 
@@ -497,9 +653,9 @@
         let contador = 0;
         while (contador < botoes.length) {
           if (contador !== parametro) {
-            botoes[contador].classList.add("opacidade");
+            botoes[contador].classList.add('opacidade');
           }
-          botoes[contador].setAttribute("disabled", "");
+          botoes[contador].setAttribute('disabled', '');
           contador += 1;
         }
       };
@@ -507,55 +663,56 @@
       let f_timer = () => {
         let indice_certo = pagina[indice_p].r_certa;
         segundos = segundos - 1;
-        timer.innerHTML = segundos + "";
+        timer.innerHTML = segundos + '';
         console.log(segundos);
         if (segundos <= 0) {
           clearInterval(identificador);
-          console.log("seu tempo acabou");
-          timer.classList.add("sumir");
-          foto.classList.add("sumir");
-          resposta.classList.remove("sumir");
-          resposta.classList.add("laranja");
-          bloco_tempo.classList.remove("sumir");
+          console.log('seu tempo acabou');
+          timer.classList.add('sumir');
+          foto.classList.add('sumir');
+          resposta.classList.remove('sumir');
+          resposta.classList.add('laranja');
+          bloco_tempo.classList.remove('sumir');
           travar_botoes(indice_certo);
-          referencia.classList.add("sumir");
+          referencia.classList.add('sumir');
         }
       };
 
       let reiniciar = () => {
-        resposta.classList.remove("verde");
-        resposta.classList.remove("vermelho");
-        resposta.classList.add("sumir");
-        resposta.classList.remove("laranja");
-        bloco_tempo.classList.add("sumir");
-        bloco_certo.classList.add("sumir");
-        bloco_errado.classList.add("sumir");
-        referencia.classList.remove("sumir");
+        resposta.classList.remove('verde');
+        resposta.classList.remove('vermelho');
+        resposta.classList.add('sumir');
+        resposta.classList.remove('laranja');
+        bloco_tempo.classList.add('sumir');
+        bloco_certo.classList.add('sumir');
+        bloco_errado.classList.add('sumir');
+        referencia.classList.remove('sumir');
         let contador = 0;
         while (contador < botoes.length) {
-          botoes[contador].classList.remove("opacidade");
-          botoes[contador].removeAttribute("disabled", "");
+          botoes[contador].classList.remove('opacidade');
+          botoes[contador].removeAttribute('disabled', '');
           contador += 1;
         }
-        foto_1.classList.remove("sumir");
-        timer.classList.remove("sumir");
-        if (identificador != null) {
-          clearInterval(identificador);
-        }
-        identificador = setInterval(f_timer, 1000);
-        segundos = 10;
-        timer.innerHTML = segundos + "";
+        foto_1.classList.remove('sumir');
+        timer.classList.remove('sumir');
+        //FIXME://FIXME://FIXME://FIXME://FIXME://FIXME://FIXME:
+        // if (identificador != null) {
+        //   clearInterval(identificador);
+        // }
+        // identificador = setInterval(f_timer, 1000);
+        // segundos = 10;
+        // timer.innerHTML = segundos + '';
       };
 
       let iniciar = () => {
-        pagina_1.classList.add("sumir");
-        body.classList.add("bg2");
-        body.classList.remove("bg3");
-        body.classList.remove("bg1");
-        pagina_2.classList.remove("sumir");
-        pagina_1.classList.add("sumir");
+        pagina_1.classList.add('sumir');
+        body.classList.add('bg2');
+        body.classList.remove('bg3');
+        body.classList.remove('bg1');
+        pagina_2.classList.remove('sumir');
+        pagina_1.classList.add('sumir');
         pergunta.innerHTML = pagina[indice_p].texto;
-        foto.setAttribute("src", pagina[indice_p].imagem);
+        foto.setAttribute('src', pagina[indice_p].imagem);
         botao_1.innerHTML = pagina[indice_p].alternativas[0];
         botao_2.innerHTML = pagina[indice_p].alternativas[1];
         botao_3.innerHTML = pagina[indice_p].alternativas[2];
@@ -567,40 +724,40 @@
         indice_p += 1;
         console.log(indice_p);
         if (indice_p === pagina.length) {
-          pagina_2.classList.add("sumir");
-          body.classList.add("bg3");
-          body.classList.remove("bg2");
-          pagina_3.classList.remove("sumir");
+          pagina_2.classList.add('sumir');
+          body.classList.add('bg3');
+          body.classList.remove('bg2');
+          pagina_3.classList.remove('sumir');
           if (corretas > 1 && corretas < 6) {
-            boneco_1.setAttribute("src", boneco[1].imagem);
+            boneco_1.setAttribute('src', boneco[1].imagem);
             jogar_novamente.innerHTML = boneco[1].texto;
             texto_parabens.innerHTML =
-              "Poxa, você só acertou " + corretas + " perguntas!";
+              'Poxa, você só acertou ' + corretas + ' perguntas!';
           } else if (corretas === 1) {
-            boneco_1.setAttribute("src", boneco[1].imagem);
+            boneco_1.setAttribute('src', boneco[1].imagem);
             jogar_novamente.innerHTML = boneco[1].texto;
             texto_parabens.innerHTML =
-              "Poxa, você só acertou " + corretas + " pergunta!";
+              'Poxa, você só acertou ' + corretas + ' pergunta!';
           } else if (corretas === 0) {
-            boneco_1.setAttribute("src", boneco[1].imagem);
+            boneco_1.setAttribute('src', boneco[1].imagem);
             jogar_novamente.innerHTML = boneco[1].texto;
             texto_parabens.innerHTML =
-              "Poxa, você não acertou nenhuma pergunta!";
+              'Poxa, você não acertou nenhuma pergunta!';
           } else if (corretas > 5 && corretas < pagina.length) {
-            boneco_1.setAttribute("src", boneco[0].imagem);
+            boneco_1.setAttribute('src', boneco[0].imagem);
             jogar_novamente.innerHTML = boneco[0].texto;
             texto_parabens.innerHTML =
-              "Parabéns, você acertou " + corretas + " perguntas!";
+              'Parabéns, você acertou ' + corretas + ' perguntas!';
           } else if (corretas === pagina.length) {
-            boneco_1.setAttribute("src", boneco[0].imagem);
+            boneco_1.setAttribute('src', boneco[0].imagem);
             jogar_novamente.innerHTML = boneco[0].texto;
             texto_parabens.innerHTML =
-              "Parabéns, você acertou todas as perguntas!";
+              'Parabéns, você acertou todas as perguntas!';
           }
 
-          console.log("funcionou");
+          console.log('funcionou');
         } else {
-          foto.setAttribute("src", pagina[indice_p].imagem);
+          foto.setAttribute('src', pagina[indice_p].imagem);
           pergunta.innerHTML = pagina[indice_p].texto;
           botao_1.innerHTML = pagina[indice_p].alternativas[0];
           botao_2.innerHTML = pagina[indice_p].alternativas[1];
@@ -613,29 +770,29 @@
       let alternativa = (clique) => {
         let indice_certo = pagina[indice_p].r_certa;
         let acertou = clique === indice_certo;
-        referencia.classList.add("sumir");
+        referencia.classList.add('sumir');
         if (acertou) {
-          console.log("alternativa correta");
-          resposta.classList.add("verde");
-          bloco_certo.classList.remove("sumir");
+          console.log('alternativa correta');
+          resposta.classList.add('verde');
+          bloco_certo.classList.remove('sumir');
           corretas += 1;
         } else {
-          console.log("alternativa errada");
-          resposta.classList.add("vermelho");
-          bloco_errado.classList.remove("sumir");
+          console.log('alternativa errada');
+          resposta.classList.add('vermelho');
+          bloco_errado.classList.remove('sumir');
         }
         travar_botoes(indice_certo);
-        resposta.classList.remove("sumir");
-        foto.classList.add("sumir");
+        resposta.classList.remove('sumir');
+        foto.classList.add('sumir');
         clearInterval(identificador);
-        timer.classList.add("sumir");
-        console.log("corretas: " + corretas);
+        timer.classList.add('sumir');
+        console.log('corretas: ' + corretas);
       };
 
       let botao_final = () => {
-        console.log("chegou aqui");
-        pagina_3.classList.add("sumir");
-        pagina_1.classList.remove("sumir");
+        console.log('chegou aqui');
+        pagina_3.classList.add('sumir');
+        pagina_1.classList.remove('sumir');
         indice_p = 0;
         corretas = 0;
         reiniciar();
