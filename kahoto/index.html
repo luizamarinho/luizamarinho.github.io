@@ -40,7 +40,6 @@
       }
       .bg1 {
         background-color: #25076b;
-        background-repeat: no-repeat;
       }
       .bg2 {
         background-color: #f2f2f2;
@@ -104,9 +103,9 @@
         flex-direction: column;
         align-items: center;
         min-height: 100%;
-        justify-content: space-evenly;
-        align-items: center;
+        justify-content: center;
         box-sizing: border-box;
+        gap: 57px;
       }
       .pergunta {
         text-align: center;
@@ -200,7 +199,8 @@
         font-family: 'Open Sans', sans-serif;
         font-size: min(7.5vw, 48px);
         font-weight: 700;
-        width: 84.37vw;
+        line-height: 1;
+        /* width: 84.37vw; */
       }
       .margem_texto {
         margin: 0px;
@@ -290,6 +290,19 @@
         flex-direction: column;
         flex-grow: 1;
       }
+      .pontos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 57px;
+      }
+      .texto_parabens_desktop {
+        display: flex;
+        flex-direction: column;
+      }
+      .num_corretas {
+        font-size: 300px;
+      }
       .referencia {
         position: relative;
         display: flex;
@@ -319,7 +332,7 @@
           display: flex !important;
         }
         .logo {
-          width: 70.313vw;
+          width: 70.313vw * 0.5;
         }
         .iniciar {
           width: calc((398px * 0.5) + (51.823vw * 0.5));
@@ -352,8 +365,10 @@
           width: 59.896vw;
           aspect-ratio: 460/344;
         }
+        .pontos {
+          gap: 92px;
+        }
       }
-
       @media (min-width: 1024px) {
         .d-lg-none {
           display: none !important;
@@ -365,11 +380,11 @@
           display: flex !important;
         }
         .logo {
-          width: 52.734vw;
+          width: 540px;
         }
         .iniciar {
-          width: calc((398px * 0.5) + (38.867vw * 0.5));
-          font-size: calc((48px * 0.5) + (4.68vw * 0.5));
+          width: 398px;
+          font-size: 48px;
           aspect-ratio: 398/90;
         }
         .pergunta {
@@ -402,13 +417,9 @@
         .resposta_tempo {
           font-size: 40px;
         }
-        .seguinte {
-          font-size: min(5vw, 32px);
-          padding-top: min(2.18vw, 13px);
-          padding-bottom: min(1.87vw, 13px);
-          padding-left: min(10.31vw, 67px);
-          padding-right: min(10.31vw, 66px);
-          border-radius: 50px;
+        .pontos {
+          flex-direction: row;
+          gap: 159px;
         }
       }
     </style>
@@ -499,22 +510,31 @@
       </div>
     </div>
     <div class="pagina_3 sumir">
-      <div class="margem_texto">
-        <p class="texto_parabens"></p>
+      <div class="d-none d-lg-flex">
+        <img
+          class="logo_2"
+          src="https://i.imgur.com/54i73yb.png"
+          alt="Kahoot_Logo"
+        />
       </div>
-      <img
-        class="boneco_1"
-        src="https://i.imgur.com/pt7qNpR.png"
-        alt="boneco_feliz"
-        height="178"
-        width="148"
-      />
+      <div class="pontos">
+        <div class="margem_texto">
+          <p class="texto_parabens"></p>
+        </div>
+        <img
+          class="boneco_1"
+          src="https://i.imgur.com/pt7qNpR.png"
+          alt="boneco_feliz"
+          height="178"
+          width="148"
+        />
+      </div>
       <button
         type="button"
         class="jogar_novamente"
         onclick="botao_final()"
       ></button>
-      <div>
+      <div class="d-lg-none">
         <img
           class="logo_2"
           src="https://i.imgur.com/54i73yb.png"
@@ -695,13 +715,12 @@
         }
         foto_1.classList.remove('sumir');
         timer.classList.remove('sumir');
-        //FIXME://FIXME://FIXME://FIXME://FIXME://FIXME://FIXME:
-        // if (identificador != null) {
-        //   clearInterval(identificador);
-        // }
-        // identificador = setInterval(f_timer, 1000);
-        // segundos = 10;
-        // timer.innerHTML = segundos + '';
+        if (identificador != null) {
+          clearInterval(identificador);
+        }
+        identificador = setInterval(f_timer, 1000);
+        segundos = 10;
+        timer.innerHTML = segundos + '';
       };
 
       let iniciar = () => {
@@ -728,31 +747,49 @@
           body.classList.add('bg3');
           body.classList.remove('bg2');
           pagina_3.classList.remove('sumir');
-          if (corretas > 1 && corretas < 6) {
+          if (corretas < 6) {
+            let s = 's';
+            if (corretas === 1) {
+              s = '';
+            }
             boneco_1.setAttribute('src', boneco[1].imagem);
             jogar_novamente.innerHTML = boneco[1].texto;
-            texto_parabens.innerHTML =
-              'Poxa, você só acertou ' + corretas + ' perguntas!';
-          } else if (corretas === 1) {
-            boneco_1.setAttribute('src', boneco[1].imagem);
-            jogar_novamente.innerHTML = boneco[1].texto;
-            texto_parabens.innerHTML =
-              'Poxa, você só acertou ' + corretas + ' pergunta!';
-          } else if (corretas === 0) {
-            boneco_1.setAttribute('src', boneco[1].imagem);
-            jogar_novamente.innerHTML = boneco[1].texto;
-            texto_parabens.innerHTML =
-              'Poxa, você não acertou nenhuma pergunta!';
+            let texto_mt = `Poxa, você só acertou ${corretas} perguntas!`;
+            if (corretas === 0) {
+              texto_mt = 'Poxa, você não acertou nenhuma pergunta!';
+            }
+            texto_parabens.innerHTML = `
+              <span class="d-lg-none">${texto_mt}</span>
+              <span class="texto_parabens_desktop d-none d-lg-flex">
+                <span>Você acertou</span>
+                <span class="num_corretas">${corretas}</span>
+                <span>pergunta${s}!</span>
+              </span>
+            `;
           } else if (corretas > 5 && corretas < pagina.length) {
             boneco_1.setAttribute('src', boneco[0].imagem);
+            texto_mt = `Parabéns, você acertou ${corretas} perguntas!`;
             jogar_novamente.innerHTML = boneco[0].texto;
-            texto_parabens.innerHTML =
-              'Parabéns, você acertou ' + corretas + ' perguntas!';
+            texto_parabens.innerHTML = `
+              <span class="d-lg-none">${texto_mt}</span>
+              <span class="texto_parabens_desktop d-none d-lg-flex">
+                <span>Você acertou</span>
+                <span class="num_corretas">${corretas}</span>
+                <span>perguntas!</span>
+              </span>
+            `;
           } else if (corretas === pagina.length) {
             boneco_1.setAttribute('src', boneco[0].imagem);
+            texto_mt = 'Parabéns, você acertou todas as perguntas!';
             jogar_novamente.innerHTML = boneco[0].texto;
-            texto_parabens.innerHTML =
-              'Parabéns, você acertou todas as perguntas!';
+            texto_parabens.innerHTML = `
+              <span class="d-lg-none">${texto_mt}</span>
+              <span class="texto_parabens_desktop d-none d-lg-flex">
+                <span>Você acertou</span>
+                <span class="num_corretas">${corretas}</span>
+                <span>perguntas!</span>
+              </span>
+            `;
           }
 
           console.log('funcionou');
@@ -787,6 +824,11 @@
         clearInterval(identificador);
         timer.classList.add('sumir');
         console.log('corretas: ' + corretas);
+
+        foto.setAttribute(
+          'src',
+          'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
+        );
       };
 
       let botao_final = () => {
