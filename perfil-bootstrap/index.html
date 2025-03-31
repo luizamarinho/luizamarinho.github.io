@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luiza Marinho</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./favicon-portfolio.ico" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        height: 100%;
+        font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue',
+          sans-serif;
+      }
+      .pai-itens {
+        height: calc(100% - 56px);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .foto-perfil {
+        border-radius: 100%;
+        width: 16rem;
+        margin-bottom: 2rem;
+      }
+      .text-config {
+        max-width: 300px;
+      }
+      .socorroDeus {
+        display: flex;
+        flex-direction: column;
+      }
+      .table {
+        margin: 0;
+      }
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg"
+      style="background-color: #f97aa5"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Luiza Marinho</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://luizamarinho.github.io/"
+                target="_blank"
+                >Portfólio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contato">Contato</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Redes Sociais
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://github.com/luizamarinho"
+                    target="_blank"
+                    >Github</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://www.linkedin.com/in/luizacmarinho/"
+                    target="_blank"
+                    >Linkedin</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://www.instagram.com/lcmarinho/"
+                    target="_blank"
+                    >Instagram</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="pai-itens">
+      <div class="bloco-foto">
+        <img
+          class="foto-perfil"
+          src="https://i.imgur.com/tek1nJm.jpeg"
+          alt="foto Luiza"
+        />
+        <h1>Luiza Marinho</h1>
+        <h4>luizamarinho - she/her</h4>
+        <p class="text-config">
+          Sou desenvolvedora Front End com dois anos de experiência,
+          especializada em interfaces modernas e responsivas, utilizando React,
+          Remix, Tailwind CSS e TypeScript.
+        </p>
+      </div>
+      <div class="socorroDeus">
+        <h5>Atividades Recentes</h5>
+        <div class="card" style="width: 35rem">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Atividade</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Detalhes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">13/03</th>
+                <td>Alteração de Conteúdo</td>
+                <td>Atualização</td>
+                <td>Alteração na página de login</td>
+              </tr>
+              <tr>
+                <th scope="row">14/03</th>
+                <td>Conclusão</td>
+                <td>Conclusão de projeto</td>
+                <td>Página inicial concluída</td>
+              </tr>
+              <tr>
+                <th scope="row">15/03</th>
+                <td colspan="2">Revisão de bugs</td>
+                <td>Revisão de bugs na página</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="pai-itens" id="contato">
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Seu Nome</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <label for="exampleInputEmail1" class="form-label">Seu E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <label for="exampleInputEmail1" class="form-label"
+            >Sua Mensagem</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn"
+          style="color: white; background-color: #f97aa5"
+        >
+          Enviar
+        </button>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
