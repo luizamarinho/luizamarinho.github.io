@@ -5,51 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      h1 {
-        text-align: center;
-      }
-      .p {
-        display: inline;
-      }
-      .texto {
-        margin-top: 18px;
-      }
-      .texto2 {
-        margin-top: 18px;
-      }
-      .sumir {
-        display: none;
-      }
-      .vermelho {
-        background-color: red;
-        color: white;
-      }
-      .verde {
-        background-color: green;
-        color: white;
-      }
-      .perdeu {
-        display: none;
-      }
-      .ganhou {
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="bloco">
       <h1>Adivinhe um Número</h1>
       <p>
-        Selecionamos um número aleatório entre 1 e 100. Veja se <br />consegue
-        adivinhar em 10 chances ou menos. Nós lhe diremos se <br />seu palpite
-        está com valor alto ou baixo.
+        Selecionamos um número aleatório entre 1 e 100. Veja se consegue
+        adivinhar em 10 chances ou menos. Nós lhe diremos se seu palpite está
+        com valor alto ou baixo.
       </p>
       <p class="p">Digite seu palpite:</p>
       <input class="campo" />
@@ -60,9 +24,21 @@
       <div class="texto2"></div>
       <br />
       <div class="texto3"></div>
-      <div class="perdeu"><img src="./Fotos/giphy.gif" /></div>
-      <div class="ganhou">
-        <img src="./Fotos/giphy2.gif" />
+
+      <div class="perdeu escondido">
+        <img
+          src="https://i.imgur.com/lg0alHP.png"
+          alt="Você perdeu"
+          width="300"
+        />
+      </div>
+
+      <div class="ganhou escondido">
+        <img
+          src="https://i.imgur.com/hT8XCNU.png"
+          alt="Você ganhou"
+          width="300"
+        />
       </div>
 
       <br />
@@ -70,6 +46,7 @@
         Iniciar novo jogo
       </button>
     </div>
+
     <script>
       let maximo = 100;
       let numero = Math.floor(Math.random() * (maximo + 1));
@@ -78,72 +55,73 @@
       if (numero === maximo + 1) {
         numero = maximo;
       }
-      console.log(numero);
-      let campo = document.querySelector(".campo");
-      let texto = document.querySelector(".texto");
-      let texto2 = document.querySelector(".texto2");
-      let button = document.querySelector(".button");
-      let button2 = document.querySelector(".button2");
-      let texto3 = document.querySelector(".texto3");
-      let ganhou = document.querySelector(".ganhou");
-      let perdeu = document.querySelector(".perdeu");
+
+      console.log('Número secreto:', numero);
+
+      let campo = document.querySelector('.campo');
+      let texto = document.querySelector('.texto');
+      let texto2 = document.querySelector('.texto2');
+      let button = document.querySelector('.button');
+      let button2 = document.querySelector('.button2');
+      let texto3 = document.querySelector('.texto3');
+      let ganhou = document.querySelector('.ganhou');
+      let perdeu = document.querySelector('.perdeu');
+
+      campo.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+          enviar_palpite();
+        }
+      });
 
       let enviar_palpite = () => {
         let digitado = parseFloat(campo.value);
         if (!isNaN(digitado)) {
-          quantidade = quantidade + 1;
-          if (quantidade >= 10) {
-            campo.setAttribute("disabled", "");
-            button.setAttribute("disabled", "");
-            texto2.innerHTML = "!!!FIM DE JOGO!!!";
-            button2.classList.remove("sumir");
-            texto2.classList.add("vermelho");
-            perdeu.classList.remove("perdeu");
+          quantidade++;
+
+          if (digitado === numero) {
+            texto2.innerHTML = 'Parabéns! Você adivinhou o número!!!';
+            texto2.classList.add('verde');
+            texto3.innerHTML = '';
+            button2.classList.remove('sumir');
+            ganhou.classList.remove('escondido');
+            campo.setAttribute('disabled', '');
+            button.setAttribute('disabled', '');
+          } else if (quantidade >= 10) {
+            campo.setAttribute('disabled', '');
+            button.setAttribute('disabled', '');
+            texto2.innerHTML = '!!!FIM DE JOGO!!!';
+            texto2.classList.add('vermelho');
+            button2.classList.remove('sumir');
+            perdeu.classList.remove('escondido');
           } else {
-            if (texto.innerHTML === "") {
-              texto.innerHTML = "Palpites anteriores: ";
+            if (texto.innerHTML === '') {
+              texto.innerHTML = 'Palpites anteriores: ';
             }
-            texto.innerHTML = texto.innerHTML + digitado + " ";
-            console.log(digitado);
-            if (digitado === numero) {
-              console.log("acertou");
-              texto2.innerHTML = "Parabéns! Você adivinhou o número!!!";
-              texto2.classList.add("verde");
-              texto3.innerHTML = "";
-              button2.classList.remove("sumir");
-              ganhou.classList.remove("ganhou");
-              campo.setAttribute("disabled", "");
-              button.setAttribute("disabled", "");
-            } else if (digitado < numero) {
-              console.log("palpite baixo");
-              texto2.classList.add("vermelho");
-              texto3.innerHTML = "Palpite muito baixo";
-              texto2.innerHTML = "TENTE NOVAMENTE";
-            } else if (digitado > numero) {
-              console.log("palpite alto");
-              texto2.classList.add("vermelho");
-              texto2.innerHTML = "TENTE NOVAMENTE";
-              texto3.innerHTML = "Palpite muito alto";
-            }
-            campo.value = "";
+            texto.innerHTML += digitado + ' ';
+            texto2.innerHTML = 'TENTE NOVAMENTE';
+            texto2.classList.add('vermelho');
+            texto3.innerHTML =
+              digitado < numero ? 'Palpite muito baixo' : 'Palpite muito alto';
           }
+
+          campo.value = '';
         }
       };
 
       let iniciar_novo_jogo = () => {
-        texto.innerHTML = "";
-        texto2.innerHTML = "";
-        texto3.innerHTML = "";
-        campo.removeAttribute("disabled", "");
-        button.removeAttribute("disabled", "");
+        texto.innerHTML = '';
+        texto2.innerHTML = '';
+        texto3.innerHTML = '';
+        campo.removeAttribute('disabled');
+        button.removeAttribute('disabled');
         quantidade = 0;
-        button2.classList.add("sumir");
-        texto2.classList.remove("vermelho");
-        texto2.classList.remove("verde");
-        perdeu.classList.add("perdeu");
-        ganhou.classList.add("ganhou");
+        button2.classList.add('sumir');
+        texto2.classList.remove('vermelho');
+        texto2.classList.remove('verde');
+        perdeu.classList.add('escondido');
+        ganhou.classList.add('escondido');
         numero = Math.floor(Math.random() * (maximo + 1));
-        console.log(numero);
+        console.log('Novo número secreto:', numero);
       };
     </script>
   </body>
